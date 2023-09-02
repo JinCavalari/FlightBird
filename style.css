@@ -1,0 +1,28 @@
+@font-face{
+	font-family: "Mukta";
+	src: url("fonts/Mukta/Mukta-Regular.ttf");
+}
+body{
+	margin: 0px;
+	background-color: #262626;
+}
+canvas{
+	position: relative;
+	margin: auto;
+	display: none;
+	/*outline : none;*/
+}
+
+/* Loading Icon*/
+#LoadingIcon{
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	left: 50%;
+}
+@media screen and (max-width: 800px) and (orientation: portrait){
+	#LoadingIcon{ width: 50%; }
+}
+@media screen and (max-height: 800px) and (orientation: landscape){
+	#LoadingIcon{ height: 50%; }
+}
