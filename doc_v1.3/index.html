@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Documentation of Flight Bird v1.3</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="icon" href="icon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="container">
+		<h3 class="center alt">
+			Flight Bird Documentation by JHDCDevel v1.3
+		</h3>
+		<h1 class="center">
+			Flight Bird v1.3
+		</h1>
+		<h6 class="center">
+			<img src="icon.png" class="marginAuto" oncontextmenu="return false" draggable="false">
+		</h6>
+		<ul id="info" class="ulStyleOff">
+			<li>Created in: 10/2020</li>
+			<li>By: JHDCDevel</li>
+			<li>Email: <a href="#" id="email"><span id="msgCopy">Copy to clipboard</span>jhdcdevel@gmail.com</a></li>
+			<input type="text"  value="jhdcdevel@gmail.com" id="textEmail">
+		</ul>
+		<h2 class="center">Developer Requirement</h2>
+		<ul id="req" class="ulStyleOff marginAuto">
+			<li class="lineCenter">Html</li>
+			<li class="lineCenter">Css</li>
+			<li class="lineCenter">JavaScript</li>
+		</ul>
+		<h2 class="center">Table of Contents</h2>
+		<ul id="table" class="ulStyleOff marginAuto">
+			<li class="lineTable"><a href="#topic0">- Introdution</a></li>
+			<li class="lineTable"><a href="#topic1">- Classes</a></li>
+			<li class="lineTable"><a href="#topic2">- Reflection of Light in the Letters</a></li>
+			<li class="lineTable"><a href="#topic3">- Background and Clouds</a></li>
+			<li class="lineTable"><a href="#topic4">- Floor and Obstacles</a></li>
+			<li class="lineTable"><a href="#topic5">- Player</a></li>
+			<!--
+			<li class="lineTable"><a href="#topic6">- Main Screen</a></li>
+			<li class="lineTable"><a href="#topic7">- Game Start Screen</a></li>
+			<li class="lineTable"><a href="#topic8">- Game Over Window</a></li>
+			<li class="lineTable"><a href="#topic9">- Birds Screen</a></li>
+			-->
+			<li class="lineTable"><a href="#topic10">- Effect Sounds and Music</a></li>
+			<li class="lineTable"><a href="#topic11">- Bird Show Screen Unlocked</a></li>
+			<li class="lineTable"><a href="#topic12">- Skill Button</a></li>
+			<li class="lineTable"><a href="#topic13">- Score and Record</a></li>
+			<li class="lineTable"><a href="#topic14">- Events</a></li>
+			<li class="lineTable"><a href="#topic15">- Loop Frame</a></li>
+			<li class="lineTable"><a href="#titleThanks">- Thanks (contact)</a></li>
+		</ul>
+		<div id="topic0" class="topic">
+			<h2 class="center">Introdution</h2>
+			Flight Bird is a game based on Flappy Bird, created on the Canvas tag and centered on the screen, it is responsive to each screen size and orientation.<br>
+			The height of the canvas is always 1,75 times greater than what width, that is, if the width multiplied by 1,75 is greater than the height of the screen, then the width will receive the height divided by 1,75 and, if less, then the height will receive the width multiplied by 1,75.<br>
+			<br>
+			The game is an excellent pass time, in which the objective of the game is to overcome obstacles and earn scores, as you earn scores it is possible to unlock other birds, birds that can be unlocked have skills, which can be activated for a certain period of time. time by clicking on the button, or the ability can be activated after the bird hits the obstacle (how the skills will be activated depends on each bird, each bird has its appearance, size, and skills).<br>
+			<br>
+			The game also features sound effects and background music that can be disabled by clicking on their respective buttons.
+		</div>
+		<div id="topic1" class="topic">
+			<h2 class="center">Classes</h2>
+			There are 2 classes in this project: Sprite and Button, respectively, are in the files sprite.js and button.js.
+			<p>
+				- Sprite Class<br>
+				<p class="subText">
+					In this class 4 parameters are passed: x, y, width and height, x and y will be the position of the sprite that will be drawn on the screen, while width and height will be the size of the sprite.<br>
+					Attention, there is a difference in the size of the sprite and the size of the image, if the width of the sprite is greater than the width of the image and the "imgDouble" property is true, then it creates a horizontal image sequence, which is the floor case).<br>
+					<br>
+					To set the image, just create a "new Image (width, height)" and set it in the "img" property, then just set the "src" property of the image.<br>
+					It is also possible to rotate the image of the sprite, which is the case of the player, with the property "rotate", as the player falls the image is rotated clockwise to a certain angle, and when the "rotate" property is flying set to a value where the bird is pointed upwards, giving the impression that it is rising.<br>
+					<br>
+					Once these properties are set, to draw, just call the "draw" function, which is another property of the sprite.
+				</p>
+			</p>
+			<p>
+				- Button Class<br>
+				<p class="subText">
+					Like the sprite, the "Button" class has 4 parameters, and the parameters are the same, x, y, width and height. This class does not have the property to rotate, however, it has other properties for writing text on the button like: text, fontSize. In addition to properties to increase the size of the button image when the mouse over is over the button such as: mouseOver (receives true or false), scaleOriginal (size when the mouse is not over the button), scale (current size of the button).<br>
+					<br>
+					The image property of the button to be drawn, is the "imgMain" that the image is created with the class, lacking to set the "src" property of the image.<br>
+					<br>
+					Like the "Sprite" class, the "Button" class has the function of drawing it. Just call the "draw" function inside the object and then the button will be drawn at the position of the x and y property values, with the size of the button's width and height property values, and with the image of the "imgMain" property.<br>
+					<br>
+					The "Button" class has 2 functions linked to the click event:<br>
+					<br>
+					- clicked, which will return a true or false value depending on whether the click is over the button (the values of the "mouseClick" array are used, which stores the x and y coordinates from which it was clicked).<br>
+					<br>
+					- onclick, which will receive the logic of the button, calling when the "clicked" function returns true.
+				</p>
+			</p>
+		</div>
+		<div id="topic2" class="topic">
+			<h2 class="center">Reflection of Light in the Letters</h2>
+			The reflection of light in the letters is created by the variable "shine", set in the file "mainVariables.js" and updated by the loop frame in "frame.js". This variable is used in the "width" parameter of the "setGradient" function, in the "setGradient.js" file. This function has 4 parameters: x, y, width and height, these parameters must be the same as the position, width and font of the text you are going to write and then the function creates a linear gradient and then the canvas context style receives it.<br>
+			<br>
+			The value of the "shine" variable is increased, and added to the width of the gradient, giving the impression that a reflection of light passes.
+		</div>
+		<div id="topic3" class="topic">
+			<h2 class="center">Background and Clouds</h2>
+			- Background
+			<p class="subText">
+				The Background is just an object created from the Sprite class, which receives an image and is then drawn on the canvas, the Background and Clouds objects are in the "background and clouds.js" file.
+			</p>
+			- Clouds
+			<p class="subText">
+				Within the "updateClouds" function that is called in the "frame" function, clouds are created at a random height, at a random time interval, with a random sprite image, the variables that control the time interval are: addCloudTime ( which will receive the amount of time to add the next cloud), and counterAddCloud (which will receive +1 for each update). When "counterAddCloud" is greater / equal to "addCloudTime", "addCloudTime" will receive a new random value, "counterAddCloud" will receive 0, and will create a new Sprite, with the source and image size of the sprite being a random from the array "cloudsSrc".<br>
+				<br>
+				This sprite will receive the "update" function, which will decrease the x axis of the sprite and draw it on the canvas. This function will be called for each frame.<br>
+				To be able to call the update sprite function later, it will be stored in the "clouds" array, which then, inside the "updateClouds" function, a for loop will be passed, which will call the update function of the clouds and remove the clouds left the canvas.
+			</p>
+		</div>
+		<div id="topic4" class="topic">
+			<h2 class="center">Floor and Obstacles</h2>
+			The objects "floor" and "obstacles", are in the file "floor and obstacles.js".<br>
+			<br>
+			- Floor
+			<p class="subText">
+				The floor is an object of the Sprite class, which has the width of an image smaller than the sprite and with the property "imgDouble" receiving true. In other words, it is a sprite whose image is repeated sequentially and horizontally. <br>
+				<br>
+				The drawing function of the "floor" object is part of an update function, because it is necessary to decrease the x axis of the floor and then when the floor has moved a certain distance (width of the sprite image) the x is set to 0, to give the impression that the canvas is in motion and the floor sprite never leaves the canvas.<br>
+				That's why this sprite is wider than the canvas itself.<br>
+				The floor refresh function is being called within the "frame" function.
+			</p>
+			- Obstacles
+			<p class="subText">
+				The obstacles have 2 sprites ("up" and "down", which are the ends through which the player can pass), and an array of sprites for each of them (which are what is missing to complete the obstacle columns), I I did it like this, because in the beginning I used the sprite from the green column of the Super Mario Bros game, which at the top has a different sprite, and I didn’t modify it for the developer who buys this item, decide that the sprite on the ends are different from the sprites that complete the column.<br>
+				<br>
+				Obstacles are created if the "status" variable is equal to the "playing" variable and if there are no obstacles, that is, when the "obstacles" array has no items, or when the x of the last obstacle in the array has a difference in width (the right end) of the 7 tilesets canvas, which is the value of the variable "addObstacleDistance". And then the function "addNewObstacle" is called, which creates the object "obstacle", sets the ends "up" and "down", and completes the missing sprites for the columns (if necessary), creates the function "update" that will update and draw all the sprites of the "obstacle" object, and place it in the "obstacles" array.<br>
+				<br>
+				The "decision" variable at the end of the "addNewObstacle" function, serves to create a random y in tileset for the "up" sprite of the next obstacle. Then move on to the "obstacleSize" variable and convert the number (in tileset) to pixels.<br>
+				I made this logic for the next obstacle, so that the first obstacle is created with the top column being the same height as the bottom one.<br>
+				O espaço entre a sprite "up" e "down", são de 7 tilesets, que é o valor da variavel "obstacleSpace".<br>
+				<br>
+				The "updateObstacles" function is called by the "frame" function and has the utility of updating all obstacles, removing the obstacle from the array if the obstacle comes out on the left of the canvas. This function also checks if the bird has collided with an obstacle that is being updated, calling the "collision" function of the "player" object and passing the parameters that will check if the bird has collided with the upper obstacle and the lower obstacle.
+			</p>
+		</div>
+		<div id="topic5" class="topic">
+			<h2 class="center">Player</h2>
+			The "player" object is created from the "Sprite" class that represents the player, and has the image of the selected bird. It has the initial properties:
+			<p class="subText">
+				- rotate, is an integer value and serves to rotate the image when drawing according to the value. <br>
+				- angle, receives the value "rotate" however converted to degrees, used to measure how far it should stop rotating, when falling or rising. <br>
+				- gravity, is what constantly increases the y of the "player", causing it to fall. <br>
+				- gravitySpeed, is what constantly increases "gravity", giving the impression of gravity. <br>
+				- upFlying, when this variable receives true, "gravitySpeed" will decrease "gravity". And when "upFlying" receives false, "gravitySpeed" will increase "gravity". <br>
+				- timePressJump, when the player makes a short flight upwards, this variable will receive a "setTimeout", which 200 milliseconds later, if the mouse button is still being held, "upFlying" receives true.
+			</p>
+			Within the "setPlayerSprite" function, the player's variables are set according to the selected bird. Variables that can be varied from bird to bird. Such as:
+			<p class="subText">
+				- flightForce, Flight force (short). <br>
+				- width <br>
+				- height <br>
+				- fallingImage, centerImage, flyingImage, deadImage, which are images of the bird to change during animations. <br>
+				- animationFly, which is the animation for each short flight
+			</p>
+
+			- animationFly
+			<p class="subText">
+				It consists of several functions that change the character's sprite and is called "setTimeout" s, that the variable that stores it is the local variable "time". As soon as a function is called, the Timeout is deleted, and the next function is called in another Timeout. It is necessary to delete the Timeout because in the case of another function "animationFly", to be called while the previous one is not over yet, the images of the bird will be changed in both functions, making the animation strange. It is called by the player object's "oneFly" function.
+			</p>
+			- oneFly
+			<p class="subText">
+				This function is always called when it has the "status" with the same value as the "playing" variable and, when the mouse clicks on the canvas and in a place other than a button. <br>
+				The function set some variables, creates the "setTimeout" for the "timePressJump" property of the player object, calls the "animationFly" function, sets the gravity for the player to go up, and plays an audio to give the sound of the flight.
+			</p>
+			- colision
+			<p class="subText">
+				This function checks the collision by passing the x, y, width, and height of the object as parameter, it is called by the obstacles when it is going to update them.<br>
+				The "pixelsAngleY" and "pixelsAngleX" variables are used to modify the collision points according to the player's rotation angle. <br>
+				It is in this function that the logic of some bird skills (without spoiler). obviously, those that involve the player colliding with the obstacle.<br>
+				<br>
+				Another function somewhat similar to this one, which I did to see the bird's collision points to be able to make it more precise, when the bird touches the obstacle, which is the "drawRectColision" function inside the player object, it is commented within the update function of the player after the draw function.<br>
+				As the points of collision form a rectangle, I had to calibrate so that the rectangle could be in an area that depending on the angle of the bird (very up or very down) it would be in the parts where they would collide with obstacle.<br>
+				Example: <br>
+				If the bird is tilted upwards (going upwards), there is no way for the rear to collide with any obstacle, so the rectangle of the collision does not fill that part of the bird's body.
+			</p>
+		</div>
+		<!--
+		<div id="topic6" class="topic">
+			<h2 class="center">Main Screen</h2>
+			- Title
+			<p class="subText">
+				. . .
+			</p>
+		</div>
+		<div id="topic7" class="topic">
+			<h2 class="center">Game Start Screen</h2>
+			- Title
+			<p class="subText">
+				. . .
+			</p>
+		</div>
+		<div id="topic8" class="topic">
+			<h2 class="center">Game Over Window</h2>
+			- Title
+			<p class="subText">
+				. . .
+			</p>
+		</div>
+		<div id="topic9" class="topic">
+			<h2 class="center">Birds Screen</h2>
+			- Title
+			<p class="subText">
+				. . .
+			</p>
+		</div>
+		-->
+		<div id="topic10" class="topic">
+			<h2 class="center">Effect Sounds and Music</h2>
+			All audios (background music and sound effects) are in the "sounds.js" file. Some are being created within the function, because it may be that at some point the game needs to reproduce the sound effect a second time while the previous one is not over yet, as is the case of the "playClickAudio" and "playFlyingSound" functions, respectively, one is called when there is a click event on a button, and the other when the "oneFly" function is called (when the bird makes a short flight, this function is in the "player.js" file).<br>
+			<br>
+			Audio Variables:
+			<p class="subText">
+				- flyingSound, sound effect played when the bird takes a short flight when playing. <br>
+				- victorySound, music of when the bird falls to the floor and the score passes the record. <br>
+				- gameOverSound, music of when the bird falls to the floor without the score passes the record. <br>
+				- deadSound, a sound effect that plays when the bird collides with the obstacle. <br>
+				- deadFireworkSound, sound effect, when a specific bird uses its skill. <br>
+				- music, background music, short music that has a playback loop. <br>
+				- clickSound, sound effect that is played when a button is clicked.
+			</p>
+			Enable and Disable Music Buttons or Sound Effects:
+			<p class="subText">
+				The 2 buttons basically have the same properties and the same functions, however using different variables and images, the images are in the properties "imgEnable", and "imgDisable", and the property "imgMain", is the image that will show one of the two dependent on whether the button is enabled or disabled. The functions are also very similar however using different variables.<br>
+				<br>
+				- buttonMusic, image of a musical note, used to activate or deactivate the background music when clicked. <br>
+				- buttonEffectSound, image of a speaker, used to activate or deactivate the sound effects when clicked.
+			</p>
+		</div>
+		<div id="topic11" class="topic">
+			<h2 class="center">Screen Showing Bird Unlocked</h2>
+			This screen appears when the "status" variable has the same value as "gameOver" and, when the score is higher than the record to unlock any bird. The function checks if there are any birds unlocked by the "newBird" array that is in "mainVariables.js", and if so, this function draws the bird's name and image, and 2 more buttons, which are:
+			<p class="subText">
+				- btnBackNewBird, is a button with an image of an arrow pointing to the left, when clicked, it goes back to the previous screen, but if you have another bird unlocked it will show it just as it showed the previous one.<br>
+				<br>
+				- btnShowNewBird, is a button with an image of an eye, when clicked on the screen it is redirected to the bird watching screen, to see more details of the unlocked bird.
+			</p>
+		</div>
+		<div id="topic12" class="topic">
+			<h2 class="center">Skill Button</h2>
+			The skill button is an object of the class "Button", the variable that stores the object is "skillBtn", in the file "skillButton.js".<br>
+			<br>
+			Skill button properties:
+			<p class="subText">
+				- imgMain, standard image of the "Button" class, is the one that will be drawn on the canvas. In this case, it is the image of the skill button when it is unlocked.<br>
+				- imgLocked, image of the skill button when it is blocked.<br>
+				- skillTime, skill cooldown.<br>
+				- skillTimeDuration, skill length of time.<br>
+				- skillTimeOut, current time, it increases when the skill is activated (duration) and decreases when it is disabled (cooldown).<br>
+				- skillOn, property to define whether the skill is active or not.<br>
+				- interval, property that will receive the time interval of 1 second to decrease or increase the "skillTimeOut". Receive "undefined" when the interval is cleared.
+			</p>
+			Draw Function:
+			<p class="subText">
+				I used the color of the button to demonstrate how much time is left before the skill can be used and how long the skill lasts for a better look. I had to create a new logic of drawing for this button, since the function of the "Button" class to draw, I was unable to make the button change images so that it seems that time is needed to click the button (a part of the button without color, and another with color).<br>
+				<br>
+				The logic is to draw a part of the unlocked image with the height divided by time and then multiplied by "skillTimeOut", and drawing a part of the locked image on the missing part to complete the image.
+			</p>
+			Loop for time interval for skill duration and cooldown:
+			<p class="subText">
+				Called by the button update function. And there are 3 actions for the interval to perform under different conditions:<br>
+				1 - Increase the value of the "skillTimeOut" property, until the duration of the skill ends.<br>
+				2 - Decrease the value of the "skillTimeOut" property, until the skill cooldown ends.<br>
+				3 - Resume the cooldown after the skill has expired.<br>
+				<br>
+				It is called every 1 second, and the duration and cooldown varies from skill to skill. The interval is stored in the object's "interval" property in case the game needs to delete the interval.
+			</p>
+		</div>
+		<div id="topic13" class="topic">
+			<h2 class="center">Score and Record</h2>
+			The logic that updates and draws the score and the record is the "updateScore" function that is in the "updateScoreAndRecord.js" file. It is called by the "frame" function, the parameter is to show the score along with the record, this parameter is passed as true when the "status" is "startGame", "playing", "endGame" or "gameOver".<br>
+			This function also has the logic of adding the score when the bird passes the obstacle. There are also some conditions that make the logic of some bird skills.
+		</div>
+		<div id="topic14" class="topic">
+			<h2 class="center">Events</h2>
+			All game events are in the "event.js" file. Different events are added to the file in the case of mouse and touch, the condition is defined by the variable "mobile" that is in the file "mainVariables.js" and receives either true (if the device is mobile) or false (if the device is desktop).<br>
+			If the device is desktop, in addition to the click functions it also has for mobile, it also receives mouseOver event and keyboard event.<br>
+			<br>
+			Mouse Down / Touch Start Event
+			<p class="subText">
+				The "mouseClick" array is used to store the click data, the event stores the 1st value of the array with the X coordinate of the mouse click and stores the 2nd value of the array with the Y coordinate of the mouse click. With this simple logic it is possible to know if 1 button was clicked.<br>
+				For the click to happen only 1 time, this variable is reset (receives a new array with null values) at each loop of the "frame" function.<br>
+				After these variables receive the click value, the "clickPress" function is called to perform all the logic with conditions to know which screen is on and if the button was clicked.
+			</p>
+			Mouse Up / Touch End Event
+			<p class="subText">
+				This event simply receives the "clickRelease" function, which basically serves to stop the player from flying without falling. <br>
+				Recalling, the variables of the "mouseClick" array, receive "null" in the "frame" function.
+			</p>
+			Mouse Move Event
+			<p class="subText">
+				Like the Mouse Down event, it stores the 1st and 2nd values of an array (in this case, this array is the variable "mousePos") with the X and Y coordinates of the mouse, however, this function is called only with the movement of the mouse, the array is not zeroed at any time, and does not call any function, only gives values. All objects that make use of the event, use the "mousePos" array, in their own functions.
+			</p>
+			Keyboard Event
+			<p class="subText">
+				To make the keyboard event work on the canvas I had to give some value to the "tabIndex" property of the canvas, it also makes a border appear outside the canvas to show that it is in focus, that border can be removed by adding the code that is commented on the "outline" property that receives "none" in the canvas CSS in "style.css".<br>
+				<br>
+				The event receives the function "keyboardDown" and if the key pressed is "space" and has the variable "status" receiving the same value of "playing", then the "onclick" function of "btnSkill" is called, activating the skill of the bird.
+			</p>
+		</div>
+		<div id="topic15" class="topic">
+			<h2 class="center">Loop Frame</h2>
+			The "frame" function is in the "frame.js" file and is called in the file itself. It is he who transitions screens and updates and draws all (or most) objects. "Most" because not all design and update functions are in that function, but that function is the main one.<br>
+			<br>
+			A função frame:
+			<p class="subText">
+				Clean the canvas;<br>
+				Updates the "shine" variable (which makes the letters shine);<br>
+				Updates and draws specific objects depending on the current screen;<br>
+				And it gives a null value for the first two positions of the variable "mouseClick".
+			</p>
+		</div>
+		<div id="topicLast">
+			<h2 id="titleThanks" class="center">Thanks</h2>
+			Thank you for purchasing my game. If you have any questions, please send me an email via a contact form on my user page by clicking below.<br>
+			<ul id="contact" class="ulStyleOff center marginAuto">
+				<a href="https://codecanyon.net/user/jincavalari#contact" target="blank"><li>Click here to contact me</li></a>
+			</ul>
+		</div>
+	</div>
+	<div id="buttonTop">
+		<a href="#container">
+			<img id="imageTop" src="images/arrow.png">
+		</a>
+	</div>
+	<script src="js/index.js"></script>
+</body>
+</html>
