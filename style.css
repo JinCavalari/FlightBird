@@ -12,6 +12,13 @@ canvas{
 	display: none;
 	/*outline : none;*/
 }
+#DocBtn{
+	position: fixed;
+	bottom: 0px;
+	height: 70px;
+	z-index: 1;
+	user-select: none;
+}
 
 /* Loading Icon*/
 #LoadingIcon{
